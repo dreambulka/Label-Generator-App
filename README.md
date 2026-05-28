@@ -53,7 +53,7 @@ No frameworks. No APIs. No tracking.
 Open the GitHub Pages version:
 
 ```txt
-https://your-username.github.io/Label-Generator-App/
+https://github.com/dreambulka/Label-Generator-App.git
 ```
 
 ## Local Usage
@@ -132,7 +132,7 @@ Free to use for personal and commercial purposes.
 Откройте GitHub Pages:
 
 ```txt
-https://your-username.github.io/Label-Generator-App/
+https://github.com/dreambulka/Label-Generator-App.git
 ```
 
 ## Локальное использование
