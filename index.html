@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Локальный генератор этикеток</title>
+  <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+      <rect width="256" height="256" rx="42" fill="%23181818"/>
+      <rect x="48" y="42" width="160" height="168" rx="18" fill="white"/>
+      <path d="M175 42h33v33z" fill="%23dddddd"/>
+      <rect x="68" y="100" width="8" height="65" fill="%23111111"/>
+      <rect x="84" y="100" width="4" height="65" fill="%23111111"/>
+      <rect x="94" y="100" width="12" height="65" fill="%23111111"/>
+      <rect x="114" y="100" width="6" height="65" fill="%23111111"/>
+      <rect x="128" y="100" width="14" height="65" fill="%23111111"/>
+      <rect x="150" y="100" width="5" height="65" fill="%23111111"/>
+      <rect x="164" y="100" width="10" height="65" fill="%23111111"/>
+      <text x="140" y="198" font-family="Arial, sans-serif" font-size="36" font-weight="700" fill="%23111111">2217</text>
+    </svg>'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    :root {
+      --label-width: 453.54px;
+      --label-height: 283.46px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f4f4;
+      color: #111;
+    }
+
+    .app {
+      max-width: 1120px;
+      margin: 24px auto;
+      padding: 0 16px;
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .panel,
+    .preview-panel {
+      background: #fff;
+      border: 1px solid #d7d7d7;
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    label {
+      display: block;
+      margin: 12px 0 5px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    input {
+      width: 100%;
+      height: 38px;
+      padding: 8px 10px;
+      border: 1px solid #bbb;
+      border-radius: 8px;
+      font: 16px Arial, Helvetica, sans-serif;
+      color: #111;
+      background: #fff;
+    }
+
+    button {
+      width: 100%;
+      min-height: 42px;
+      margin-top: 14px;
+      padding: 10px 14px;
+      border: 0;
+      border-radius: 8px;
+      background: #111;
+      color: #fff;
+      font: 700 15px Arial, Helvetica, sans-serif;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: .9;
+    }
+
+    .note {
+      margin-top: 12px;
+      padding: 10px;
+      border: 1px solid #b8d7ff;
+      border-radius: 8px;
+      background: #f0f7ff;
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .preview-panel {
+      min-height: 340px;
+    }
+
+    .preview-title {
+      margin-bottom: 14px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .label-frame {
+      width: var(--label-width);
+      height: var(--label-height);
+      background: #fff;
+      border: 1px solid #ddd;
+      box-shadow: 0 4px 14px rgba(0,0,0,.08);
+      overflow: hidden;
+    }
+
+    .label {
+      position: relative;
+      width: var(--label-width);
+      height: var(--label-height);
+      background: #fff;
+      color: #111;
+      overflow: hidden;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .label__name {
+      position: absolute;
+      left: 24px;
+      top: 25px;
+      width: 405px;
+      font-size: 21px;
+      line-height: 1.15;
+      font-weight: 700;
+      white-space: normal;
+      overflow: hidden;
+      text-overflow: unset;
+      word-break: break-word;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    .label__date {
+      position: absolute;
+      left: 24px;
+      top: 101px;
+      font-size: 14px;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .label__weight {
+      position: absolute;
+      left: 24px;
+      top: 128px;
+      font-size: 14px;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .label__number-small {
+      position: absolute;
+      left: 273px;
+      top: 101px;
+      font-size: 12px;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .label__big-number {
+      position: absolute;
+      right: 27px;
+      bottom: 16px;
+      font-size: 41px;
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: .5px;
+    }
+
+    .barcode-box {
+      position: absolute;
+      left: 24px;
+      bottom: 16px;
+      width: 193px;
+      text-align: center;
+    }
+
+    .barcode-box svg {
+      display: block;
+      width: 193px;
+      height: 75px;
+    }
+
+    .barcode-text {
+      margin-top: 4px;
+      font-size: 16px;
+      line-height: 1;
+      letter-spacing: .5px;
+      white-space: nowrap;
+    }
+
+    .bold {
+      font-weight: 700;
+    }
+
+    @media (max-width: 900px) {
+      .app {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .app {
+        display: block;
+        margin: 0;
+        padding: 0;
+      }
+
+      .panel,
+      .preview-title {
+        display: none;
+      }
+
+      .preview-panel {
+        border: 0;
+        padding: 0;
+      }
+
+      .label-frame {
+        border: 0;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="app">
+    <section class="panel">
+      <h1>Этикетка товара</h1>
+
+      <label for="productName">Название</label>
+      <input id="productName" value="Матрас с чехлом Air Surfing 180*200 h=24 MC">
+
+      <label for="packDate">Дата упаковки</label>
+      <input id="packDate" type="date">
+
+      <label for="weight">Вес, кг</label>
+      <input id="weight" value="0">
+
+      <label for="barcodeValue">Штрихкод</label>
+      <input id="barcodeValue" value="730009587468" inputmode="numeric">
+
+      <label for="itemNumber">Номер</label>
+      <input id="itemNumber" value="2217">
+
+      <button id="openPreview" type="button">Открыть предпросмотр / печать</button>
+
+      <div class="note">
+        Разработано <a href="https://t.me/nimisss556">@nimisss556</a> (telegram).
+      </div>
+    </section>
+
+    <section class="preview-panel">
+      <div class="preview-title">Предпросмотр</div>
+      <div class="label-frame" id="labelMount"></div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      "use strict";
+
+      var LABEL_WIDTH = 453.54;
+      var LABEL_HEIGHT = 283.46;
+
+      var els = {
+        productName: document.getElementById("productName"),
+        packDate: document.getElementById("packDate"),
+        weight: document.getElementById("weight"),
+        barcodeValue: document.getElementById("barcodeValue"),
+        itemNumber: document.getElementById("itemNumber"),
+        labelMount: document.getElementById("labelMount"),
+        openPreview: document.getElementById("openPreview")
+      };
+
+      var CODE128_PATTERNS = [
+        "212222","222122","222221","121223","121322","131222","122213","122312","132212","221213",
+        "221312","231212","112232","122132","122231","113222","123122","123221","223211","221132",
+        "221231","213212","223112","312131","311222","321122","321221","312212","322112","322211",
+        "212123","212321","232121","111323","131123","131321","112313","132113","132311","211313",
+        "231113","231311","112133","112331","132131","113123","113321","133121","313121","211331",
+        "231131","213113","213311","213131","311123","311321","331121","312113","312311","332111",
+        "314111","221411","431111","111224","111422","121124","121421","141122","141221","112214",
+        "112412","122114","122411","142112","142211","241211","221114","413111","241112","134111",
+        "111242","121142","121241","114212","124112","124211","411212","421112","421211","212141",
+        "214121","412121","111143","111341","131141","114113","114311","411113","411311","113141",
+        "114131","311141","411131","211412","211214","211232","2331112"
+      ];
+
+      function escapeHtml(value) {
+        return String(value == null ? "" : value)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
+      function todayISO() {
+        var d = new Date();
+        return d.getFullYear() + "-" +
+          String(d.getMonth() + 1).padStart(2, "0") + "-" +
+          String(d.getDate()).padStart(2, "0");
+      }
+
+      function formatDate(isoDate) {
+        if (!isoDate) return "";
+        var parts = isoDate.split("-");
+        if (parts.length !== 3) return isoDate;
+        return parts[2] + "." + parts[1] + "." + parts[0];
+      }
+
+      function normalizeBarcode(value) {
+        var digits = String(value || "").replace(/\D/g, "");
+        if (!digits) digits = "0";
+        if (digits.length % 2 !== 0) digits = "0" + digits;
+        return digits;
+      }
+
+      function getCode128CValues(value) {
+        var digits = normalizeBarcode(value);
+        var codes = [105];
+        var checksum = 105;
+
+        for (var i = 0, position = 1; i < digits.length; i += 2, position++) {
+          var code = parseInt(digits.substr(i, 2), 10);
+          codes.push(code);
+          checksum += code * position;
+        }
+
+        codes.push(checksum % 103);
+        codes.push(106);
+
+        return codes;
+      }
+
+      function makeBarcodeSvg(value) {
+        var codes = getCode128CValues(value);
+        var totalModules = 0;
+
+        codes.forEach(function (code) {
+          CODE128_PATTERNS[code].split("").forEach(function (n) {
+            totalModules += Number(n);
+          });
+        });
+
+        var width = 193;
+        var height = 75;
+        var x = 0;
+        var moduleWidth = width / totalModules;
+        var rects = "";
+
+        codes.forEach(function (code) {
+          var pattern = CODE128_PATTERNS[code];
+
+          for (var i = 0; i < pattern.length; i++) {
+            var partWidth = Number(pattern[i]) * moduleWidth;
+
+            if (i % 2 === 0) {
+              rects += '<rect x="' + x.toFixed(3) + '" y="0" width="' +
+                Math.max(0.6, partWidth).toFixed(3) + '" height="' + height + '" fill="#000"/>';
+            }
+
+            x += partWidth;
+          }
+        });
+
+        return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + width + ' ' + height +
+          '" width="' + width + '" height="' + height + '" aria-label="barcode">' + rects + '</svg>';
+      }
+
+      function getFormData() {
+        return {
+          productName: els.productName.value.trim(),
+          packDate: formatDate(els.packDate.value),
+          weight: els.weight.value.trim(),
+          barcodeValue: els.barcodeValue.value.trim(),
+          itemNumber: els.itemNumber.value.trim()
+        };
+      }
+
+      function buildLabelHtml(data) {
+        var visibleBarcode = String(data.barcodeValue || "").replace(/\s+/g, "");
+
+        return '' +
+          '<div class="label">' +
+            '<div class="label__name">' + escapeHtml(data.productName) + '</div>' +
+
+            '<div class="label__date">' +
+              'Дата упаковки: <span class="bold">' + escapeHtml(data.packDate) + '</span>' +
+            '</div>' +
+
+            '<div class="label__weight">' +
+              'Вес, кг: <span class="bold">' + escapeHtml(data.weight) + '</span>' +
+            '</div>' +
+
+            '<div class="barcode-box">' +
+              makeBarcodeSvg(data.barcodeValue) +
+              '<div class="barcode-text">' + escapeHtml(visibleBarcode) + '</div>' +
+            '</div>' +
+
+            '<div class="label__big-number">' + escapeHtml(data.itemNumber) + '</div>' +
+          '</div>';
+      }
+
+      function renderPreview() {
+        els.labelMount.innerHTML = buildLabelHtml(getFormData());
+      }
+
+      function getSharedStyles() {
+        var styles = "";
+        var styleTags = document.querySelectorAll("style");
+
+        styleTags.forEach(function (styleTag) {
+          styles += styleTag.textContent + "\n";
+        });
+
+        return styles;
+      }
+
+      function openPrintPreview() {
+        renderPreview();
+
+        var data = getFormData();
+        var labelHtml = buildLabelHtml(data);
+        var safeFileName = (data.itemNumber || "etiketka").replace(/[^\wа-яА-ЯёЁ-]+/g, "_");
+        var styles = getSharedStyles();
+
+        var previewHtml = '<!doctype html>' +
+          '<html lang="ru">' +
+          '<head>' +
+            '<meta charset="utf-8">' +
+            '<title>' + 'Этикетка' + '_' +
+              data.itemNumber + '_' +
+              data.productName.replace(/[\\/:*?"<>|]/g, "_") +
+            '</title>' +
+            '<style>' + styles + '</style>' +
+            '<style>' +
+              'body{margin:0;background:#f4f4f4;font-family:Arial,Helvetica,sans-serif;color:#111;}' +
+              '.print-page{min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:24px;}' +
+              '.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;}' +
+              '.toolbar button{width:auto;margin:0;min-width:160px;}' +
+              '.toolbar .light{background:#b8b8b8;}' +
+              '.label-frame{background:#fff;}' +
+              '.help{margin-top:12px;font-size:13px;color:#555;text-align:center;line-height:1.35;}' +
+              '@media print{' +
+                '@page{size:' + LABEL_WIDTH + 'px ' + LABEL_HEIGHT + 'px;margin:0;}' +
+                'body{background:#fff;}' +
+                '.print-page{min-height:auto;padding:0;display:block;}' +
+                '.toolbar,.help{display:none!important;}' +
+                '.label-frame{border:0!important;box-shadow:none!important;width:' + LABEL_WIDTH + 'px!important;height:' + LABEL_HEIGHT + 'px!important;}' +
+              '}' +
+            '</style>' +
+          '</head>' +
+          '<body>' +
+            '<div class="print-page">' +
+              '<div class="toolbar">' +
+                '<button type="button" onclick="window.print()">Печать / сохранить в PDF</button>' +
+                '<button class="light" type="button" onclick="window.close()">Закрыть</button>' +
+              '</div>' +
+              '<div class="label-frame">' + labelHtml + '</div>' +
+              '<div class="help">Для скачивания PDF нажмите «Печать / сохранить в PDF» и выберите принтер «Сохранить как PDF».</div>' +
+            '</div>' +
+          '</body>' +
+          '</html>';
+
+        var previewWindow = window.open("", "_blank");
+
+        if (!previewWindow) {
+          alert("Браузер заблокировал окно предпросмотра. Разрешите всплывающие окна для этого файла.");
+          return;
+        }
+
+        previewWindow.document.open();
+        previewWindow.document.write(previewHtml);
+        previewWindow.document.close();
+      }
+
+      Object.keys(els).forEach(function (key) {
+        if (els[key] && els[key].tagName === "INPUT") {
+          els[key].addEventListener("input", renderPreview);
+          els[key].addEventListener("change", renderPreview);
+        }
+      });
+
+      els.openPreview.addEventListener("click", openPrintPreview);
+
+      els.packDate.value = todayISO();
+      renderPreview();
+    })();
+  </script>
+</body>
+</html>
