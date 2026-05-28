@@ -58,7 +58,7 @@ https://github.com/dreambulka/Label-Generator-App.git
 
 ## Local Usage
 
-Download:
+Download and open:
 
 ```txt
 index.html
@@ -133,7 +133,7 @@ https://github.com/dreambulka/Label-Generator-App.git
 
 ## Локальное использование
 
-Скачайте:
+Скачайте и откройте:
 
 ```txt
 index.html
