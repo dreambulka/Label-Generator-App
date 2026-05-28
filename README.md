@@ -73,10 +73,6 @@ Then open it in any modern browser:
 
 No setup required.
 
-## Screenshot
-
-*Add screenshot here*
-
 ## License
 
 Free to use for personal and commercial purposes.
@@ -151,10 +147,6 @@ index.html
 * Safari
 
 Никакая установка не требуется.
-
-## Скриншот
-
-*Добавьте скриншот приложения*
 
 ## Лицензия
 
