@@ -1,10 +1,10 @@
 # Label Generator App
 
-🇬🇧 English | 🇷🇺 Русский
+us English | 🇷🇺 Русский
 
 ---
 
-# 🇬🇧 English
+# us English
 
 A lightweight and fully local **product label generator** built with pure **HTML, CSS, and JavaScript**.
 
