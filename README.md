@@ -269,3 +269,5 @@ index.html
 <img width="1023" height="950" alt="image" src="https://github.com/user-attachments/assets/9cb5471b-e5d2-4594-8fdd-c0a64785733e" />
 
 
+Copyright © 2026 dreambulka.  
+Original project: https://github.com/dreambulka/Label-Generator-App
