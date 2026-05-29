@@ -1,6 +1,4 @@
-## BARQ Label Studio
-
-# Label Generator App
+## Label Generator App
 
 A clean, fully local label generator for warehouses, packaging teams, sellers, and marketplace workflows.
 
