@@ -1,4 +1,5 @@
-<p align="center"><img width="65" height="26" alt="logo" src="https://github.com/user-attachments/assets/179f5482-2c00-4264-96ae-663059240790" /></p>
+<p align="center"><img width="83" height="41" alt="logo" src="https://github.com/user-attachments/assets/3ae1d157-bf95-4471-bc2f-50c2f56d2a66" />
+</p>
 
 
 <h1 align="center">
