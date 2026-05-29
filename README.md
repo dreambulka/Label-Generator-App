@@ -107,7 +107,7 @@ Recommended browsers:
 The latest expanded working version is:
 
 ```txt
-version3_marketplaces_fbs.html
+index.html
 ```
 
 It includes the optimized codebase, updated visual interface, Wildberries print fix, Honest Sign/Data Matrix generation, Yandex Market preset, and Universal FBS preset.
@@ -242,7 +242,7 @@ English version is above: [go to English description](#label-generator-app).
 Актуальная расширенная версия:
 
 ```txt
-version3_marketplaces_fbs.html
+index.html
 ```
 
 В ней уже есть оптимизированный код, обновлённый визуал, исправление печати для Wildberries, генерация Честного ЗНАКа/Data Matrix, пресет Яндекс Маркета и универсальный FBS-пресет.
