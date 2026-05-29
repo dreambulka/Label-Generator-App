@@ -1,0 +1,8 @@
+Label Generator App
+Copyright (c) 2026 dreambulka
+
+Original project:
+https://github.com/dreambulka/Label-Generator-App
+
+This project was created by dreambulka.
+If you distribute modified versions, please keep this notice and clearly state your changes.
