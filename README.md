@@ -1,4 +1,4 @@
-##BARQ Label Studio
+## BARQ Label Studio
 
 # Label Generator App
 
