@@ -265,8 +265,6 @@ index.html
 
 Бесплатно для личного и коммерческого использования.
 
-<img width="1310" height="950" alt="image" src="https://github.com/user-attachments/assets/3da38a12-2002-457e-8c62-14ea865cc97c" />
-<img width="1023" height="950" alt="image" src="https://github.com/user-attachments/assets/9cb5471b-e5d2-4594-8fdd-c0a64785733e" />
 
 
 Copyright © 2026 dreambulka.  
