@@ -5,4 +5,5 @@ Original project:
 https://github.com/dreambulka/Label-Generator-App
 
 This project was created by dreambulka.
+Telegram @nimisss556 (https://t.me/nimisss556)
 If you distribute modified versions, please keep this notice and clearly state your changes.
