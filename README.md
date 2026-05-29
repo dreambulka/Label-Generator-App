@@ -267,5 +267,6 @@ index.html
 
 
 
+Developed by @nimisss556 (https://t.me/nimisss556)
 Copyright © 2026 dreambulka.  
 Original project: https://github.com/dreambulka/Label-Generator-App
