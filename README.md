@@ -1,61 +1,104 @@
-## Label Generator App
+<p align="center"><img width="65" height="26" alt="logo" src="https://github.com/user-attachments/assets/179f5482-2c00-4264-96ae-663059240790" /></p>
 
-A clean, fully local label generator for warehouses, packaging teams, sellers, and marketplace workflows.
+
+<h1 align="center">
+🏷️ Label Generator App
+</h1>
+
+<p align="center">
+<strong>A clean, fully local label generator for warehouses, packaging teams, sellers, and marketplace workflows.</strong>
+</p>
+
+<p align="center">
+No installation • Offline • Browser-based • Print-ready
+</p>
+
+<p align="center">
+  <a href="../../releases">📦 Download</a> •
+  <a href="#overview">📖 Overview</a> •
+  <a href="#key-features">✨ Features</a> •
+  <a href="#presets">🏪 Presets</a> •
+  <a href="#how-to-use">🚀 Quick Start</a> •
+  <a href="#license">📄 License</a>
+</p>
 
 Русская версия находится ниже: [перейти к описанию на русском](#генератор-этикеток).
 
-## Overview
+
+<img width="1200" height="728" alt="Twitter post - 1" src="https://github.com/user-attachments/assets/918d35a3-2a85-4122-9541-dc07d985011f" />
+<img width="1200" height="653" alt="Twitter post - 2" src="https://github.com/user-attachments/assets/d69f1bf2-75f3-44e4-8a27-f20557e30bb6" />
+
+---
+
+# Overview
 
 **Label Generator App** helps create print-ready product labels directly in the browser. The application is built as a standalone HTML file, so it does not require a server, database, registration, cloud storage, or external services.
 
 The current version has been redesigned to feel more practical and pleasant in daily work: the settings are grouped more clearly, the preview is easier to read, marketplace presets are faster to switch, and the printed label layout is aligned with the on-screen preview.
 
+---
+
 ## Key Features
 
-- Fully local and offline-ready: open the HTML file in a browser and work without installation.
-- Live label preview: every field update is reflected immediately.
-- Print-ready layout: labels can be printed directly or saved as PDF through the browser print dialog.
-- Updated visual interface: cleaner spacing, clearer controls, a more comfortable preview area, and a smoother workflow.
-- Bilingual UI: English and Russian interface modes.
-- Flexible label size: custom dimensions in `px`, `cm`, or `mm`.
-- Marketplace presets: ready-made layouts for common selling and warehouse scenarios.
-- Barcode generation: product barcodes and marketplace barcodes are rendered inside the label.
-- Data Matrix support: generates a marking code from the Data Matrix field.
-- Honest Sign support: Data Matrix marking is placed in the right-side label area above the number/SKU where relevant.
-- Marketplace-specific fields: seller article, marketplace SKU, quantity, expiry date, color, size, storage conditions, serial number, shipment data, and warehouse comments.
-- No dependencies: pure HTML, CSS, and JavaScript.
+| Feature | Description |
+|----------|-------------|
+| ✅ Fully local and offline-ready | Open the HTML file in a browser and work without installation |
+| ⚡ Live label preview | Every field update is reflected immediately |
+| 🖨️ Print-ready layout | Print directly or save as PDF through the browser |
+| 🎨 Updated visual interface | Cleaner spacing, clearer controls, smoother workflow |
+| 🌍 Bilingual UI | English and Russian interface modes |
+| 📏 Flexible label size | Custom dimensions in `px`, `cm`, or `mm` |
+| 🏪 Marketplace presets | Ready-made layouts for selling and warehouse scenarios |
+| 📦 Barcode generation | Product and marketplace barcodes rendered inside labels |
+| 🔳 Data Matrix support | Generates marking code from Data Matrix field |
+| 🛡️ Honest Sign support | Data Matrix placed above number/SKU where relevant |
+| 📝 Marketplace-specific fields | SKU, quantity, expiration, size, serial number, comments |
+| 🚀 No dependencies | Pure HTML, CSS, and JavaScript |
+
+---
 
 ## Presets
 
-### Custom Label
+### 🏷️ Custom Label
 
 Use this mode for general product labels, internal warehouse labels, samples, packaging labels, and non-marketplace scenarios. You can set a custom size and choose the barcode type manually.
 
-### OZON
+---
+
+### 🟦 OZON
 
 Marketplace-oriented label layout with fields for product name, seller article, Ozon SKU ID, quantity, expiration date, color, size, storage conditions, barcode, number/SKU, and optional Data Matrix marking.
 
-Default size: `120 x 75 mm`.
+**Default size:** `120 x 75 mm`
 
-### Wildberries
+---
+
+### 🟪 Wildberries
 
 Compact marketplace label layout with product name, seller article, WB NM ID, brand, country of origin, supplier, quantity, expiration date, color, size, barcode, number/SKU, and optional Honest Sign/Data Matrix code.
 
-Default size: `58 x 40 mm`.
+**Default size:** `58 x 40 mm`
 
-The print layout for this preset has been fixed so the printed version matches the preview more closely.
+> [!IMPORTANT]
+> The print layout for this preset has been fixed so the printed version matches the preview more closely.
 
-### Yandex Market
+---
+
+### 🟥 Yandex Market
 
 Dedicated Yandex Market preset with a marketplace-specific layout. It supports product name, description, composition, shelf life text, serial number, seller article, quantity, expiration date, color, size, barcode, SKU, and optional Data Matrix marking.
 
-Default size: `100 x 70 mm`.
+**Default size:** `100 x 70 mm`
 
-### Universal FBS Label
+---
+
+### 📦 Universal FBS Label
 
 A flexible FBS label for shipments where the seller prepares the package before transfer to a marketplace or logistics partner. It includes marketplace name, order number barcode, shipment number, seller article, quantity, warehouse comment, product barcode, SKU, and optional Data Matrix marking.
 
-Default size: `100 x 70 mm`.
+**Default size:** `100 x 70 mm`
+
+---
 
 ## Supported Data
 
@@ -80,11 +123,24 @@ The application can display and print:
 - Warehouse comment
 - Data Matrix marking code
 
+---
+
 ## Barcode And Marking
 
-The app supports common product and marketplace barcode scenarios, including EAN-style numeric barcodes and Code128 for marketplace/order identifiers.
+The app supports common product and marketplace barcode scenarios, including numeric EAN barcodes and Code128 for marketplace/order identifiers.
+
+### Supported Barcode Types
+
+- EAN-8
+- EAN-13
+- EAN-14
+- EAN-18
+- Code128
+- Data Matrix
 
 For marked goods, the **Data Matrix marking code** can be entered into the dedicated field. The app generates the visual Data Matrix code and places it into the label layout without requiring an external service.
+
+---
 
 ## How To Use
 
@@ -95,12 +151,14 @@ For marked goods, the **Data Matrix marking code** can be entered into the dedic
 5. Click **Open preview / Print**.
 6. Print the label or save it as PDF from the browser dialog.
 
-Recommended browsers:
+### Recommended browsers
 
 - Microsoft Edge
 - Google Chrome
 - Mozilla Firefox
 - Safari
+
+---
 
 ## Current Main File
 
@@ -112,6 +170,8 @@ index.html
 
 It includes the optimized codebase, updated visual interface, Wildberries print fix, Honest Sign/Data Matrix generation, Yandex Market preset, and Universal FBS preset.
 
+---
+
 ## Technologies
 
 - HTML5
@@ -120,15 +180,23 @@ It includes the optimized codebase, updated visual interface, Wildberries print 
 - SVG rendering for barcodes
 - Canvas/SVG-style rendering for Data Matrix
 
-No frameworks. No backend. No tracking. No database.
+> [!NOTE]
+> No frameworks. No backend. No tracking. No database.
+
+---
 
 ## Notes
 
 Marketplace and marking requirements can change, so label layouts should be checked against the current rules of the platform before mass printing.
 
+---
+
 ## License
 
 Free to use for personal and commercial purposes.
+Developed by @nimisss556 (https://t.me/nimisss556)
+Copyright © 2026 dreambulka.
+Original project: https://github.com/dreambulka/Label-Generator-App
 
 ---
 
@@ -138,27 +206,34 @@ Free to use for personal and commercial purposes.
 
 English version is above: [go to English description](#label-generator-app).
 
+---
+
 ## Описание
 
 **Label Generator App** помогает быстро создавать готовые к печати товарные этикетки прямо в браузере. Приложение сделано как автономный HTML-файл, поэтому ему не нужны сервер, база данных, регистрация, облако или внешние подключения.
 
 В текущей версии обновлён визуал: интерфейс стал чище, современнее и удобнее для ежедневной работы. Настройки лучше сгруппированы, предпросмотр читается спокойнее, пресеты маркетплейсов переключаются быстрее, а печатная версия этикетки лучше соответствует тому, что видно в предпросмотре.
 
+---
+
 ## Возможности
 
-- Полностью локальная работа: можно открыть HTML-файл в браузере и пользоваться без установки.
-- Работа офлайн: данные не отправляются на сервер.
-- Живой предпросмотр: изменения в полях сразу отображаются на этикетке.
-- Печать и сохранение в PDF через стандартное окно печати браузера.
-- Обновлённый визуальный интерфейс: аккуратные отступы, понятные элементы управления и более приятная зона предпросмотра.
-- Два языка интерфейса: русский и английский.
-- Настраиваемый размер этикетки в `px`, `cm` или `mm`.
-- Готовые пресеты для маркетплейсов и складских сценариев.
-- Генерация штрихкодов прямо внутри этикетки.
-- Генерация Data Matrix из поля маркировки.
-- Поддержка Честного ЗНАКа: Data Matrix размещается в правой части этикетки над номером/SKU там, где это предусмотрено макетом.
-- Поля под разные сценарии: артикул продавца, SKU маркетплейса, количество, срок годности, цвет, размер, условия хранения, серийный номер, номер отправления и комментарий для склада.
-- Без зависимостей: только HTML, CSS и JavaScript.
+| Возможность | Описание |
+|-------------|----------|
+| ✅ Полностью локальная работа | Можно открыть HTML-файл в браузере и пользоваться без установки |
+| 🌐 Работа офлайн | Данные не отправляются на сервер |
+| ⚡ Живой предпросмотр | Изменения сразу отображаются |
+| 🖨️ Печать и PDF | Через стандартное окно браузера |
+| 🎨 Обновлённый интерфейс | Аккуратнее, удобнее и современнее |
+| 🌍 Два языка | Русский и английский |
+| 📏 Размеры | `px`, `cm`, `mm` |
+| 🏪 Пресеты маркетплейсов | Ozon, WB, Яндекс, FBS |
+| 📦 Штрихкоды | Генерация прямо внутри этикетки |
+| 🔳 Data Matrix | Генерация маркировки |
+| 🛡️ Честный ЗНАК | Автоматическое размещение |
+| 🚀 Без зависимостей | Только HTML, CSS, JavaScript |
+
+---
 
 ## Пресеты
 
@@ -170,27 +245,30 @@ English version is above: [go to English description](#label-generator-app).
 
 Макет для задач Ozon: название товара, артикул продавца, Ozon SKU ID, количество, срок годности, цвет, размер, условия хранения, штрихкод, номер/SKU и опциональный Data Matrix.
 
-Размер по умолчанию: `120 x 75 мм`.
+**Размер по умолчанию:** `120 x 75 мм`
 
 ### Wildberries
 
 Компактный макет для Wildberries: название товара, артикул продавца, WB NM ID, бренд, страна производства, поставщик, количество, срок годности, цвет, размер, штрихкод, номер/SKU и опциональный Честный ЗНАК/Data Matrix.
 
-Размер по умолчанию: `58 x 40 мм`.
+**Размер по умолчанию:** `58 x 40 мм`
 
-Для этого пресета исправлена печатная версия: теперь она лучше совпадает с предпросмотром.
+> [!IMPORTANT]
+> Для этого пресета исправлена печатная версия: теперь она лучше совпадает с предпросмотром.
 
 ### Яндекс Маркет
 
 Отдельный пресет для Яндекс Маркета с собственным макетом. Поддерживает название товара, описание, состав, срок службы/годности, серийный номер, артикул продавца, количество, срок годности, цвет, размер, штрихкод, SKU и опциональный Data Matrix.
 
-Размер по умолчанию: `100 x 70 мм`.
+**Размер по умолчанию:** `100 x 70 мм`
 
 ### Универсальная FBS-этикетка
 
 Гибкий макет для FBS-сценариев, когда продавец сам готовит заказ к передаче маркетплейсу или логистическому партнёру. В этикетке есть название маркетплейса, штрихкод заказа, номер отправления, артикул продавца, количество, комментарий для склада, товарный штрихкод, SKU и опциональный Data Matrix.
 
-Размер по умолчанию: `100 x 70 мм`.
+**Размер по умолчанию:** `100 x 70 мм`
+
+---
 
 ## Какие данные можно вывести
 
@@ -215,11 +293,24 @@ English version is above: [go to English description](#label-generator-app).
 - Комментария для склада
 - Кода маркировки Data Matrix
 
+---
+
 ## Штрихкоды и маркировка
 
 Приложение поддерживает распространённые сценарии товарных и маркетплейс-штрихкодов, включая числовые EAN-форматы и Code128 для заказов, SKU и внутренних идентификаторов.
 
+### Поддерживаемые типы штрихкодов
+
+- EAN-8
+- EAN-13
+- EAN-14
+- EAN-18
+- Code128
+- Data Matrix
+
 Для маркированных товаров можно заполнить поле **Data Matrix marking code**. Приложение сформирует визуальный Data Matrix и разместит его в макете этикетки без обращения к внешним сервисам.
+
+---
 
 ## Как пользоваться
 
@@ -230,12 +321,14 @@ English version is above: [go to English description](#label-generator-app).
 5. Нажмите **Open preview / Print**.
 6. Распечатайте этикетку или сохраните её в PDF через окно печати браузера.
 
-Рекомендуемые браузеры:
+### Рекомендуемые браузеры
 
 - Microsoft Edge
 - Google Chrome
 - Mozilla Firefox
 - Safari
+
+---
 
 ## Текущий основной файл
 
@@ -247,6 +340,8 @@ index.html
 
 В ней уже есть оптимизированный код, обновлённый визуал, исправление печати для Wildberries, генерация Честного ЗНАКа/Data Matrix, пресет Яндекс Маркета и универсальный FBS-пресет.
 
+---
+
 ## Технологии
 
 - HTML5
@@ -255,18 +350,20 @@ index.html
 - SVG-генерация штрихкодов
 - Генерация Data Matrix внутри приложения
 
-Без фреймворков. Без бэкенда. Без отслеживания. Без базы данных.
+> [!NOTE]
+> Без фреймворков. Без бэкенда. Без отслеживания. Без базы данных.
+
+---
 
 ## Важно
 
 Требования маркетплейсов и правила маркировки могут меняться, поэтому перед массовой печатью этикетки стоит сверять с актуальными правилами конкретной площадки.
 
+---
+
 ## Лицензия
 
 Бесплатно для личного и коммерческого использования.
-
-
-
 Developed by @nimisss556 (https://t.me/nimisss556)
-Copyright © 2026 dreambulka.  
+Copyright © 2026 dreambulka.
 Original project: https://github.com/dreambulka/Label-Generator-App
